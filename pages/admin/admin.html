@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="admin-header">
+        <h2>Painel Admin</h2>
+        <a href="../../index.html" style="color:white;"><i class="fas fa-sign-out-alt"></i> Sair</a>
+    </header>
+
+    <main class="content-container">
+        
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="showTab('missoes')">Missões</button>
+            <button class="tab-btn" onclick="showTab('comunidade')">Moderação</button>
+        </div>
+
+        <div id="tab-missoes" class="tab-content">
+            <div class="card-form">
+                <h3>Criar Nova Missão</h3>
+                <input type="text" id="mTitle" placeholder="Título da Missão">
+                <input type="text" id="mDesc" placeholder="Descrição">
+                <input type="number" id="mPoints" placeholder="Pontos">
+                <button id="btnCreateMission" class="btn-primary">Publicar Missão</button>
+            </div>
+            
+            <h3>Missões Ativas</h3>
+            <div id="adminMissionsList">
+                </div>
+        </div>
+
+        <div id="tab-comunidade" class="tab-content" style="display:none;">
+            <h3>Posts Recentes</h3>
+            <p><small>Clique na lixeira para apagar posts impróprios.</small></p>
+            <div id="adminFeedList">
+                </div>
+        </div>
+
+        <button class="tab-btn" onclick="showTab('users')">Usuários</button>
+
+        <div id="tab-users" class="tab-content" style="display:none;">
+            <h3>Usuários Cadastrados</h3>
+            <div class="search-bar" style="margin-bottom: 15px;">
+                <input type="text" id="searchUser" placeholder="Buscar por email..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+            </div>
+            <div id="adminUsersList">
+                </div>
+        </div>
+        
+    </main>
+
+    <script src="../../mock-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

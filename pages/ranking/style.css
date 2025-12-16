@@ -1,0 +1,106 @@
+/* /pages/ranking/style.css */
+
+/* --- INÍCIO DO GLOBAL (Copiado de Missões) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+:root {
+    --bg-base: #f4f7f6; --white: #ffffff;
+    --primary: #4a90e2; --primary-dark: #357abd; --gold: #f1c40f;
+    --text-main: #2c3e50; --text-light: #95a5a6;
+    --nav-height: 70px; --header-height: 60px;
+    --radius: 16px; --shadow-soft: 0 10px 30px -10px rgba(0,0,0,0.1);
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body {
+    margin: 0; font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-base); color: var(--text-main);
+    padding-top: calc(var(--header-height) + 20px);
+    padding-bottom: calc(var(--nav-height) + 20px);
+}
+.app-header {
+    position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 20px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.app-header h2 { font-size: 1.1rem; margin: 0; color: var(--primary-dark); }
+.bottom-nav {
+    position: fixed; bottom: 0; left: 0; width: 100%; height: var(--nav-height);
+    background: var(--white); display: flex; justify-content: space-around;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05); z-index: 1000;
+    border-top-left-radius: 20px; border-top-right-radius: 20px;
+}
+.nav-item {
+    text-decoration: none; color: var(--text-light); display: flex;
+    flex-direction: column; align-items: center; justify-content: center;
+    flex: 1; height: 100%;
+}
+.nav-item i { font-size: 1.4rem; margin-bottom: 4px; transition: 0.2s; }
+.nav-item span { font-size: 0.7rem; font-weight: 600; }
+.nav-item.active { color: var(--primary); }
+.nav-item.active i { transform: translateY(-2px); }
+.content-container { width: 100%; max-width: 600px; margin: 0 auto; padding: 0 20px; animation: fadeIn 0.4s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* --- FIM DO GLOBAL --- */
+
+/* Estilos de Ranking Artístico */
+.ranking-intro { text-align: center; margin-bottom: 25px; color: #7f8c8d; font-size: 0.9rem; }
+
+.race-item {
+    background: var(--white); border-radius: var(--radius); padding: 20px;
+    margin-bottom: 20px; box-shadow: var(--shadow-soft);
+    position: relative; overflow: hidden; transition: transform 0.2s;
+}
+.race-item:active { transform: scale(0.98); }
+
+/* Faixa lateral decorativa */
+.race-item::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px; background: #eee;
+}
+
+.race-info {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 15px; position: relative; z-index: 2;
+}
+
+.race-rank-badge {
+    width: 36px; height: 36px;
+    background: #f0f2f5; color: #7f8c8d; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1rem; margin-right: 15px;
+}
+
+.race-team-name { flex-grow: 1; font-weight: 700; color: var(--text-main); font-size: 1rem; }
+.race-points { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+
+/* Barra de Progresso */
+.progress-track { background-color: #f0f2f5; height: 12px; border-radius: 10px; overflow: hidden; }
+.progress-bar {
+    height: 100%; border-radius: 10px;
+    background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+    box-shadow: 0 2px 10px rgba(161, 196, 253, 0.5);
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* TOP 3 - Estilos Especiais */
+/* Ouro */
+.rank-1::before { background: var(--gold); }
+.rank-1 .race-rank-badge { background: #fff9db; color: #d4ac0d; border: 2px solid var(--gold); }
+.rank-1 .progress-bar { 
+    background: linear-gradient(90deg, #f1c40f 0%, #f7dc6f 100%);
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+}
+/* Prata */
+.rank-2::before { background: #bdc3c7; }
+.rank-2 .race-rank-badge { background: #f4f6f7; color: #7f8c8d; border: 2px solid #bdc3c7; }
+.rank-2 .progress-bar { background: linear-gradient(90deg, #bdc3c7 0%, #ecf0f1 100%); }
+/* Bronze */
+.rank-3::before { background: #e67e22; }
+.rank-3 .race-rank-badge { background: #fbeee6; color: #d35400; border: 2px solid #e67e22; }
+.rank-3 .progress-bar { background: linear-gradient(90deg, #e67e22 0%, #f39c12 100%); }
+
+/* Minha Equipe */
+.my-team-card { border: 2px solid var(--primary); background: #fbfdff; }
+.my-team-card .race-team-name::after {
+    content: " (Você)"; font-size: 0.7rem; color: var(--primary); font-weight: 600; margin-left: 5px;
+}

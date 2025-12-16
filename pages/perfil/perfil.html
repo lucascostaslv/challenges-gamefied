@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="app-header">
+        <h2>Minha Conta</h2>
+        <i class="fas fa-cog" style="color: #666;"></i>
+    </header>
+
+    <main class="content-container">
+        <div class="profile-card">
+            <div class="profile-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="form-group">
+                <label>Nome de Exibição</label>
+                <input type="text" id="inputName" placeholder="Seu nome">
+            </div>
+            <div class="form-group">
+                <label>E-mail (Login)</label>
+                <input type="email" id="inputEmail" readonly style="background: #eee;">
+            </div>
+            <button id="btnSaveProfile" class="btn-outline">Salvar Alterações</button>
+        </div>
+
+        <h3 class="section-title">Minha Equipe</h3>
+        
+        <div id="hasTeamSection" class="team-status-card" style="display:none;">
+            <h2 id="currentTeamName" class="highlight-text">Nome da Equipe</h2>
+            <p>Você está pontuando para este time.</p>
+            <button id="btnLeaveTeam" class="btn-danger">Sair da Equipe</button>
+        </div>
+
+        <div id="noTeamSection" class="team-status-card" style="display:none;">
+            <p>Você não está em nenhuma equipe!</p>
+            
+            <div class="action-box">
+                <label>Entrar em equipe existente:</label>
+                <select id="selectTeam">
+                    <option value="">Selecione...</option>
+                </select>
+                <button id="btnJoinTeam" class="btn-primary">Entrar</button>
+            </div>
+
+            <div class="separator">OU</div>
+
+            <div class="action-box">
+                <label>Criar nova equipe:</label>
+                <input type="text" id="newTeamName" placeholder="Nome do novo time">
+                <button id="btnCreateTeam" class="btn-secondary">Criar Time</button>
+            </div>
+        </div>
+
+        <div class="info-links">
+            <a href="#" class="info-item"><i class="fas fa-book-open"></i> Regras da Campanha</a>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="../missions/missions.html" class="nav-item">
+            <i class="fas fa-scroll"></i>
+            <span>Missões</span>
+        </a>
+        <a href="../ranking/ranking.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>Ranking</span>
+        </a>
+        <a href="../community/community.html" class="nav-item">
+            <i class="fas fa-users"></i>
+            <span>Comun.</span>
+        </a>
+        <a href="#" class="nav-item active"> <i class="fas fa-user-circle"></i>
+            <span>Perfil</span>
+        </a>
+        <a href="../../index.html" class="nav-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sair</span>
+        </a>
+    </nav>
+
+    <script src="../../mock-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* /pages/missions/style.css */
+
+/* --- INÍCIO DO GLOBAL --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+:root {
+    --bg-base: #f4f7f6; --white: #ffffff;
+    --primary: #4a90e2; --primary-dark: #357abd; --accent: #ff6b6b;
+    --text-main: #2c3e50; --text-light: #95a5a6;
+    --nav-height: 70px; --header-height: 60px;
+    --radius: 16px; --shadow-soft: 0 10px 30px -10px rgba(0,0,0,0.1);
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body {
+    margin: 0; font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-base); color: var(--text-main);
+    padding-top: calc(var(--header-height) + 20px);
+    padding-bottom: calc(var(--nav-height) + 20px);
+}
+/* Header */
+.app-header {
+    position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 20px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.app-header h2 { font-size: 1rem; margin: 0; color: var(--primary-dark); }
+/* Nav */
+.bottom-nav {
+    position: fixed; bottom: 0; left: 0; width: 100%; height: var(--nav-height);
+    background: var(--white); display: flex; justify-content: space-around;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05); z-index: 1000;
+    border-top-left-radius: 20px; border-top-right-radius: 20px;
+}
+.nav-item {
+    text-decoration: none; color: var(--text-light); display: flex;
+    flex-direction: column; align-items: center; justify-content: center;
+    flex: 1; height: 100%;
+}
+.nav-item i { font-size: 1.4rem; margin-bottom: 4px; transition: 0.2s; }
+.nav-item span { font-size: 0.7rem; font-weight: 600; }
+.nav-item.active { color: var(--primary); }
+.nav-item.active i { transform: translateY(-2px); }
+.content-container { width: 100%; max-width: 600px; margin: 0 auto; padding: 0 20px; animation: fadeIn 0.4s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* --- FIM DO GLOBAL --- */
+
+/* Estilos de Missões */
+.user-info h2 { font-size: 1.1rem; margin: 0; color: var(--primary-dark); }
+.team-badge { font-size: 0.8rem; color: #7f8c8d; background: #eee; padding: 4px 10px; border-radius: 20px; }
+.points-display { background: var(--primary); color: white; padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; }
+
+h3 { color: var(--text-main); margin-bottom: 15px; font-size: 1.1rem; }
+
+.mission-card {
+    background: var(--white); border-radius: var(--radius); padding: 20px;
+    margin-bottom: 15px; box-shadow: var(--shadow-soft);
+    border-left: 5px solid var(--primary); /* Padrão */
+    transition: transform 0.2s;
+}
+.mission-card:active { transform: scale(0.98); }
+
+.mission-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.mission-title { font-weight: 700; color: var(--text-main); }
+.mission-points { color: var(--primary); font-weight: 700; }
+.mission-desc { font-size: 0.9rem; color: #666; margin-bottom: 12px; line-height: 1.5; }
+
+.status-badge { display: inline-block; font-size: 0.75rem; padding: 6px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; }
+
+/* Variações de Status */
+.status-completed { background: #d4edda; color: #155724; border-left-color: #28a745; }
+.status-in_progress { background: #fff3cd; color: #856404; border-left-color: #ffc107; }
+.status-locked { background: #e2e3e5; color: #383d41; border-left-color: #6c757d; }
